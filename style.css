@@ -1,0 +1,49 @@
+// 음악 데이터 정의
+const musicList = [
+    "Queen - Bohemian Rhapsody",
+    "lunch - Billie eilish",
+    "leap of faith - christopher",
+    "don’t go wasting time - new hope club",
+    "Michael Jackson - Billie Jean",
+    "The Beatles - Hey Jude",
+    "Led Zeppelin - Stairway to Heaven",
+    "Pink Floyd - Comfortably Numb",
+    "Bob Marley - No Woman No Cry",
+    "David Bowie - Space Oddity",
+    "Elton John - Rocket Man",
+    "Nirvana - Smells Like Teen Spirit",
+    "Rolling Stones - Paint It Black",
+    "Bruce Springsteen - Born to Run",
+    "Prince - Purple Rain",
+    "Madonna - Like a Prayer",
+    "U2 - With or Without You",
+    "Guns N' Roses - Sweet Child O' Mine",
+    "Radiohead - Creep",
+    "Metallica - Enter Sandman",
+    "Oasis - Wonderwall",
+    "Coldplay - Yellow",
+    "Beyoncé - Single Ladies",
+    "Eminem - Lose Yourself"
+];
+
+// 함수: 랜덤 음악 추천
+function recommendRandomMusic() {
+    let randomIndex = Math.floor(Math.random() * musicList.length);
+    return musicList[randomIndex];
+}
+
+// 이벤트 리스너: 음악 추천 버튼 클릭 시 실행될 함수
+document.getElementById('recommend-btn').addEventListener('click', function() {
+    let randomMusic = recommendRandomMusic();
+    displayRecommendation(randomMusic);
+});
+
+// 함수: 추천된 팝송을 화면에 표시
+function displayRecommendation(music) {
+    let recommendationDiv = document.getElementById('recommendation');
+    recommendationDiv.innerHTML = ''; // 이전 추천 초기화
+
+    let recommendationText = document.createElement('p');
+    recommendationText.textContent = `추천 음악: ${music}`;
+    recommendationDiv.appendChild(recommendationText);
+}
